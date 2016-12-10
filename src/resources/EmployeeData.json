@@ -1,0 +1,5 @@
+{
+  "Name": "{{NAME}}",
+  "Description": "{{DESCRIPTION}}",
+  "Image Path": "{{IMAGE_PATH}}"
+}

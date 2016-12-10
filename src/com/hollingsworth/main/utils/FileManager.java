@@ -3,22 +3,40 @@ package com.hollingsworth.main.utils;
 /**
  * Created by Bailey Hollingsworth on 12/9/16.
  */
+
 import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
+
 public class FileManager {
     public static File directory;
+    public static FileManager globalFileManager;
+
     public FileManager(){
         String FileFolder = getOSFolder();
-
         System.out.println("Searching for resource folder");
         directory = new File(FileFolder);
-
         if (directory.exists()) {
             System.out.println("Found folder");
         }
-
         if (directory.exists() == false) {
             directory.mkdir();
             System.out.println("Could not find folder so created it");
+        }
+    }
+
+    public void createNewEmployeeFile(String name, String description, String imagePath){
+        List<String> lines = Arrays.asList(name, description, imagePath);
+        Path path = Paths.get(directory.toString(), name+".json");
+        try {
+            Files.write(path,lines, Charset.forName("UTF-8"));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -40,9 +58,7 @@ public class FileManager {
             FileFolder = System.getProperty("user.dir") + ".FabLabTool";
             System.out.println("Found linux");
         }
-        System.out.println(FileFolder);
+        System.out.print("  " + FileFolder);
         return FileFolder;
     }
-
-
 }
