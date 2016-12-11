@@ -1,7 +1,7 @@
 package com.hollingsworth.main.controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import com.hollingsworth.main.objects.Constants;
+import com.hollingsworth.main.utils.WebManager;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -32,26 +32,33 @@ public class InitController implements Initializable{
     @FXML
     protected ListView rightList;
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("Initializing elements into code! :)");
+        System.out.println("Initializing elements into code");
         testAssertions();
         //Insert logic
-        ObservableList list = FXCollections.observableArrayList (
-                "Bailey Hollingsworth", "Brandt", "ConfusedBrant", "Mike");
-        rightList.setItems(list);
+        addMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Constants.NewEmployeeStage.show();
+            }
+        });
         closeMenuItem.setOnAction(new EventHandler<ActionEvent>(){
             @Override
             public void handle(ActionEvent event) {
                 System.out.println("clicked");
             }
         });
+        aboutMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                WebManager.openWebpage(Constants.ABOUT_LINK);
+            }
+        });
     }
 
-
-
     private void testAssertions(){
+        System.out.println("Testing assertions");
         assert closeMenuItem != null:"fx:id=\"closeMenuItem\" was not injected: check your FXML file 'prototype.fxml'.";
         assert leftList != null:"fx:id=\"leftList\" was not injected: check your FXML file 'prototype.fxml'.";
         assert rightList != null:"fx:id=\"rightList\" was not injected: check your FXML file 'prototype.fxml'.";
@@ -61,5 +68,4 @@ public class InitController implements Initializable{
         assert aboutMenuItem != null:"fx:id=\"aboutMenuItem\" was not injected: check your FXML file 'prototype.fxml'.";
         assert reportIssueMenuItem != null:"fx:id=\"reportIssueMenuItem\" was not injected: check your FXML file 'prototype.fxml'.";
     }
-
 }

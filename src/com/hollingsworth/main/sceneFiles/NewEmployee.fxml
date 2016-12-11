@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="206.0" prefWidth="362.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hollingsworth.main.controller.EmployeeAddController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="43.0" text="Name" />
+      <Label layoutX="14.0" layoutY="64.0" text="Description" />
+      <TextField fx:id="nameTextField" layoutX="85.0" layoutY="9.0" prefHeight="27.0" prefWidth="231.0" />
+      <TextArea fx:id="descriptionTextArea" layoutX="85.0" layoutY="44.0" prefHeight="57.0" prefWidth="231.0" />
+      <Label fx:id="imagePathLabel" layoutX="117.0" layoutY="111.0" prefHeight="27.0" prefWidth="198.0" />
+      <Button fx:id="chooseImageButton" layoutX="2.0" layoutY="111.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="111.0" text="Choose Image" />
+      <Button fx:id="okButton" layoutX="163.0" layoutY="149.0" mnemonicParsing="false" text="OK" />
+      <Button fx:id="cancelButton" layoutX="234.0" layoutY="149.0" mnemonicParsing="false" text="Cancel" />
+   </children>
+</AnchorPane>
