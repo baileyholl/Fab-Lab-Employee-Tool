@@ -7,8 +7,7 @@ package com.hollingsworth.main.utils;
 import com.hollingsworth.main.objects.Constants;
 import com.hollingsworth.main.objects.Employee;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -41,10 +40,48 @@ public class FileManager {
 
     public static void createNewEmployeeFile(String name, String description, String imagePath){
         List<String> lines = Arrays.asList(name, description, imagePath);
-        Path path = Paths.get(Constants.mainFolder.toString(), name+".json");
+        Path path = Paths.get(Constants.textFolder.toString(), name+".txt");
         try {
             Files.write(path,lines, Charset.forName("UTF-8"));
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void createNewEmployeeFile(Employee newEmployee) {
+        createNewEmployeeFile(newEmployee.getName(), newEmployee.getDescription(), newEmployee.getImagePath().toString());
+    }
+
+    public static void copyImageFileToResources(File imageFile, String employeeName){
+        InputStream inStream;
+        OutputStream outStream;
+        try{
+
+            File afile = imageFile;
+            File bfile =new File(Constants.imageFolder.toString(),employeeName +".png");
+
+            inStream = new FileInputStream(afile);
+            outStream = new FileOutputStream(bfile);
+
+            byte[] buffer = new byte[1024];
+
+            int length;
+            //copy the file content in bytes
+            while ((length = inStream.read(buffer)) > 0){
+
+                outStream.write(buffer, 0, length);
+
+            }
+
+            inStream.close();
+            outStream.close();
+
+            //delete the original file
+            //afile.delete();
+
+            System.out.println("File is copied successful!");
+
+        }catch(IOException e){
             e.printStackTrace();
         }
     }
@@ -75,9 +112,5 @@ public class FileManager {
         }
         System.out.println(FileFolder);
         return FileFolder;
-    }
-
-    public static void createNewEmployeeFile(Employee newEmployee) {
-        createNewEmployeeFile(newEmployee.getName(), newEmployee.getDescription(), newEmployee.getImagePath().toString());
     }
 }

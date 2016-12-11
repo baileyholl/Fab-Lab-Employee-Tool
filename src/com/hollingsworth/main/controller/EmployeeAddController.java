@@ -45,8 +45,9 @@ public class EmployeeAddController implements Initializable{
                 if(imageFile != null && imageFile.exists() && !imageFile.toString().isEmpty()&& !nameTextField.getText().isEmpty() &&
                         !descriptionTextArea.getText().isEmpty()){
                     //Add employee to database and list
-                    Employee newEmployee = new Employee(nameTextField.getText(), descriptionTextArea.getText(), imageFile);
+                    Employee newEmployee = new Employee(nameTextField.getText(), descriptionTextArea.getText());
                     FileManager.createNewEmployeeFile(newEmployee);
+                    FileManager.copyImageFileToResources(imageFile, nameTextField.getText());
                     clearFields();
                 }else{
                     System.out.println("Criteria not met");
