@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
 public class Main extends Application {
     public static Stage parentStage;
     @Override
@@ -25,7 +26,7 @@ public class Main extends Application {
         launch(args);
     }
     public void initBeforeStartup(){
-        FileManager.globalFileManager = new FileManager();
+        FileManager.setupFolders();
     }
 
     public void setupEmployeeScene()throws Exception{

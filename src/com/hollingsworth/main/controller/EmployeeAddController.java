@@ -1,6 +1,8 @@
 package com.hollingsworth.main.controller;
 
 import com.hollingsworth.main.objects.Constants;
+import com.hollingsworth.main.objects.Employee;
+import com.hollingsworth.main.utils.FileManager;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -32,30 +34,50 @@ public class EmployeeAddController implements Initializable{
     @FXML
     TextArea descriptionTextArea;
 
+    private File imageFile;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         testAssertions();
         okButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
+                if(imageFile != null && imageFile.exists() && !imageFile.toString().isEmpty()&& !nameTextField.getText().isEmpty() &&
+                        !descriptionTextArea.getText().isEmpty()){
+                    //Add employee to database and list
+                    Employee newEmployee = new Employee(nameTextField.getText(), descriptionTextArea.getText(), imageFile);
+                    FileManager.createNewEmployeeFile(newEmployee);
+                    clearFields();
+                }else{
+                    System.out.println("Criteria not met");
+                }
             }
         });
         chooseImageButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 FileChooser fileChooser = new FileChooser();
-                fileChooser.setTitle("Open Resource File");
+                fileChooser.setTitle("Open Employee Image");
                 File file = fileChooser.showOpenDialog(Constants.NewEmployeeStage);
                 imagePathLabel.setText(file.toString());
+                imageFile = file;
             }
         });
+
         cancelButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 Constants.NewEmployeeStage.close();
+                clearFields();
             }
         });
+    }
+
+    private void clearFields(){
+        imagePathLabel.setText("");
+        imageFile = new File("");
+        nameTextField.setText("");
+        descriptionTextArea.setText("");
     }
 
     private void testAssertions(){

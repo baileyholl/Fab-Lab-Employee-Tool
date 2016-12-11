@@ -1,21 +1,23 @@
 package com.hollingsworth.main.objects;
 
+import java.io.File;
+
 /**
  * Created by Bailey Hollingsworth on 12/7/16.
  */
-public class EmployeeData {
+public class Employee {
     private String name;
     private String description;
-    private String imagePath;
+    private File imagePath;
 
 
-    public EmployeeData(){
+    public Employee(){
         this.name = "";
         this.description = "";
-        this.imagePath = "";
+        this.imagePath = new File("");
     }
 
-    public EmployeeData(String name, String description, String imagePath){
+    public Employee(String name, String description, File imagePath){
         this.name = name;
         this.description = description;
         this.imagePath = imagePath;
@@ -37,11 +39,11 @@ public class EmployeeData {
         this.description = description;
     }
 
-    public String getImagePath() {
+    public File getImagePath() {
         return imagePath;
     }
 
-    public void setImagePath(String imagePath) {
+    public void setImagePath(File imagePath) {
         this.imagePath = imagePath;
     }
 }
