@@ -17,7 +17,7 @@ public class Main extends Application {
         parentStage = primaryStage;
         initBeforeStartup();
         setupEmployeeScene();
-        Parent root = FXMLLoader.load(getClass().getResource("sceneFiles/prototype.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("scenes/prototype.fxml"));
         parentStage.setTitle("Fab Lab Available Employees");
         parentStage.setScene(new Scene(root));
         parentStage.show();
@@ -35,7 +35,7 @@ public class Main extends Application {
 
     }
     public void setupEmployeeScene()throws Exception{
-        Constants.NewEmployeeRoot = FXMLLoader.load(getClass().getResource("sceneFiles/NewEmployee.fxml"));
+        Constants.NewEmployeeRoot = FXMLLoader.load(getClass().getResource("scenes/NewEmployee.fxml"));
         Constants.NewEmployeeStage = new Stage();
         Constants.NewEmployeeStage.setScene(new Scene(Constants.NewEmployeeRoot));
         Constants.NewEmployeeStage.initModality(Modality.APPLICATION_MODAL);
