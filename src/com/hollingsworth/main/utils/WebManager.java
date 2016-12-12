@@ -32,9 +32,7 @@ public class WebManager {
     public static void openWebpage(String url) {
         try {
             openWebpage(new URL(url).toURI());
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        } catch (MalformedURLException e) {
+        } catch (URISyntaxException | MalformedURLException e) {
             e.printStackTrace();
         }
     }

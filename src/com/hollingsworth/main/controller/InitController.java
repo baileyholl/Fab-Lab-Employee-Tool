@@ -1,9 +1,7 @@
 package com.hollingsworth.main.controller;
 
-import com.hollingsworth.main.objects.Constants;
+import com.hollingsworth.main.data.Constants;
 import com.hollingsworth.main.utils.WebManager;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
@@ -37,24 +35,9 @@ public class InitController implements Initializable{
         System.out.println("Initializing elements into code");
         testAssertions();
         //Insert logic
-        addMenuItem.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Constants.NewEmployeeStage.show();
-            }
-        });
-        closeMenuItem.setOnAction(new EventHandler<ActionEvent>(){
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("clicked");
-            }
-        });
-        aboutMenuItem.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                WebManager.openWebpage(Constants.ABOUT_LINK);
-            }
-        });
+        addMenuItem.setOnAction(event -> Constants.NewEmployeeStage.show());
+        closeMenuItem.setOnAction(event -> System.out.println("clicked"));
+        aboutMenuItem.setOnAction(event -> WebManager.openWebpage(Constants.ABOUT_LINK));
     }
 
     private void testAssertions(){

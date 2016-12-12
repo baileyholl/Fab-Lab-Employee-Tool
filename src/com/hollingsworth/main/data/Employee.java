@@ -1,4 +1,4 @@
-package com.hollingsworth.main.objects;
+package com.hollingsworth.main.data;
 
 /**
  * Created by Bailey Hollingsworth on 12/7/16.

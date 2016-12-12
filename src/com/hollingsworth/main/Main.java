@@ -1,6 +1,7 @@
 package com.hollingsworth.main;
 
-import com.hollingsworth.main.objects.Constants;
+import com.hollingsworth.main.data.Constants;
+import com.hollingsworth.main.data.EmployeeDatabase;
 import com.hollingsworth.main.utils.FileManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -27,8 +28,12 @@ public class Main extends Application {
     }
     public void initBeforeStartup(){
         FileManager.setupFolders();
+        Constants.database = new EmployeeDatabase(Constants.textFiles);
+        setupLists();
     }
+    public void setupLists(){
 
+    }
     public void setupEmployeeScene()throws Exception{
         Constants.NewEmployeeRoot = FXMLLoader.load(getClass().getResource("sceneFiles/NewEmployee.fxml"));
         Constants.NewEmployeeStage = new Stage();

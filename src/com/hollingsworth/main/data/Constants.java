@@ -1,4 +1,4 @@
-package com.hollingsworth.main.objects;
+package com.hollingsworth.main.data;
 
 import javafx.scene.Parent;
 import javafx.stage.Stage;
@@ -17,5 +17,7 @@ public class Constants {
     public static File mainFolder;
     public static File imageFolder;
     public static File textFolder;
+    public static File[] imageFiles;
+    public static File[] textFiles;
     public static EmployeeDatabase database;
 }
