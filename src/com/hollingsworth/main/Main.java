@@ -29,11 +29,8 @@ public class Main extends Application {
     public void initBeforeStartup(){
         FileManager.setupFolders();
         Constants.database = new EmployeeDatabase(Constants.textFiles);
-        setupLists();
     }
-    public void setupLists(){
 
-    }
     public void setupEmployeeScene()throws Exception{
         Constants.NewEmployeeRoot = FXMLLoader.load(getClass().getResource("scenes/NewEmployee.fxml"));
         Constants.NewEmployeeStage = new Stage();

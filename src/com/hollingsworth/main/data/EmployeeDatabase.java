@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.Set;
 
 /**
  * Created by Bailey Hollingsworth on 12/10/16.
@@ -38,6 +39,11 @@ public class EmployeeDatabase {
             }
         }
     }
+
+    public Set<String> getEmployeeNames(){
+        return database.keySet();
+    }
+
 
     public void put(Employee e){
         database.put(e.getName(), e);

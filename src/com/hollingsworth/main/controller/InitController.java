@@ -2,6 +2,7 @@ package com.hollingsworth.main.controller;
 
 import com.hollingsworth.main.data.Constants;
 import com.hollingsworth.main.utils.WebManager;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
@@ -22,6 +23,8 @@ public class InitController implements Initializable{
     @FXML
     protected MenuItem addMenuItem;
     @FXML
+    protected MenuItem moveMenuItem;
+    @FXML
     protected MenuItem reportIssueMenuItem;
     @FXML
     protected MenuItem aboutMenuItem;
@@ -34,10 +37,22 @@ public class InitController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("Initializing elements into code");
         testAssertions();
+        refreshList();
         //Insert logic
         addMenuItem.setOnAction(event -> Constants.NewEmployeeStage.show());
+        moveMenuItem.setOnAction(event -> moveEmployeeToOtherList());
         closeMenuItem.setOnAction(event -> System.out.println("clicked"));
         aboutMenuItem.setOnAction(event -> WebManager.openWebpage(Constants.ABOUT_LINK));
+        refreshMenuItem.setOnAction(event -> refreshList());
+    }
+
+    private void refreshList() {
+        rightList.setItems(FXCollections.observableArrayList (Constants.database.getEmployeeNames()));
+    }
+
+    private void moveEmployeeToOtherList(){
+        //System.out.println("Right list is selected");
+        System.out.println(rightList.getSelectionModel().getSelectedItems().toString());
     }
 
     private void testAssertions(){
@@ -50,5 +65,6 @@ public class InitController implements Initializable{
         assert refreshMenuItem != null:"fx:id=\"addMenuItem\" was not injected: check your FXML file 'prototype.fxml'.";
         assert aboutMenuItem != null:"fx:id=\"aboutMenuItem\" was not injected: check your FXML file 'prototype.fxml'.";
         assert reportIssueMenuItem != null:"fx:id=\"reportIssueMenuItem\" was not injected: check your FXML file 'prototype.fxml'.";
+        assert moveMenuItem != null:"fx:id=\"moveMenuItem\" was not injected: check your FXML file 'prototype.fxml'.";
     }
 }
