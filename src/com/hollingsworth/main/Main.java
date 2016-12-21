@@ -28,7 +28,7 @@ public class Main extends Application {
     }
     public void initBeforeStartup(){
         FileManager.setupFolders();
-        Constants.database = new EmployeeDatabase(Constants.textFiles);
+        Constants.database = new EmployeeDatabase(Constants.textFiles, Constants.imageFiles);
     }
 
     public void setupEmployeeScene()throws Exception{

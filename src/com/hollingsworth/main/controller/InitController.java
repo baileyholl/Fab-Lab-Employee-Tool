@@ -8,16 +8,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 
+import java.awt.*;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 
 public class InitController implements Initializable{
 
     @FXML
     protected MenuItem refreshMenuItem;
     @FXML
-    protected MenuItem closeMenuItem;
+    protected MenuItem openFolderMenuItem;
     @FXML
     protected MenuItem editMenuItem;
     @FXML
@@ -39,11 +40,29 @@ public class InitController implements Initializable{
         testAssertions();
         refreshList();
         //Insert logic
-        addMenuItem.setOnAction(event -> Constants.NewEmployeeStage.show());
+        addMenuItem.setOnAction(event -> addNewEmployee());
         moveMenuItem.setOnAction(event -> moveEmployeeToOtherList());
-        closeMenuItem.setOnAction(event -> System.out.println("clicked"));
+        openFolderMenuItem.setOnAction(event -> openFolderExplorer());
         aboutMenuItem.setOnAction(event -> WebManager.openWebpage(Constants.ABOUT_LINK));
         refreshMenuItem.setOnAction(event -> refreshList());
+        editMenuItem.setOnAction(event -> editEmployeeData());
+    }
+
+    private void openFolderExplorer() {
+        try {
+            Desktop.getDesktop().open(Constants.mainFolder);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void addNewEmployee() {
+        Constants.NewEmployeeStage.show();
+    }
+
+    private void editEmployeeData() {
+
+        Constants.NewEmployeeStage.show();
     }
 
     private void refreshList() {
@@ -57,7 +76,7 @@ public class InitController implements Initializable{
 
     private void testAssertions(){
         System.out.println("Testing assertions");
-        assert closeMenuItem != null:"fx:id=\"closeMenuItem\" was not injected: check your FXML file 'prototype.fxml'.";
+        assert openFolderMenuItem != null:"fx:id=\"closeMenuItem\" was not injected: check your FXML file 'prototype.fxml'.";
         assert leftList != null:"fx:id=\"leftList\" was not injected: check your FXML file 'prototype.fxml'.";
         assert rightList != null:"fx:id=\"rightList\" was not injected: check your FXML file 'prototype.fxml'.";
         assert editMenuItem != null:"fx:id=\"editMenuItem\" was not injected: check your FXML file 'prototype.fxml'.";

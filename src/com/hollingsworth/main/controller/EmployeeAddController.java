@@ -41,7 +41,7 @@ public class EmployeeAddController implements Initializable{
             if(imageFile != null && imageFile.exists() && !imageFile.toString().isEmpty()&& !nameTextField.getText().isEmpty() &&
                     !descriptionTextArea.getText().isEmpty()){
                 //Add employee to database and list
-                Employee newEmployee = new Employee(nameTextField.getText(), descriptionTextArea.getText());
+                Employee newEmployee = new Employee(nameTextField.getText(), descriptionTextArea.getText(), imageFile);
                 FileManager.createNewEmployeeFile(newEmployee);
                 if(FileManager.copyImageFileToResources(imageFile, nameTextField.getText()) && FileManager.createNewEmployeeFile(newEmployee)){
                     clearFields();
@@ -64,6 +64,13 @@ public class EmployeeAddController implements Initializable{
             clearFields();
         });
     }
+
+    public void setupFieldsForEdit(Employee employee){
+        nameTextField.setText(employee.getName());
+        descriptionTextArea.setText(employee.getDescription());
+        imagePathLabel.setText("");
+    }
+
 
     private void clearFields(){
         imagePathLabel.setText("");

@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Set;
-
 /**
  * Created by Bailey Hollingsworth on 12/10/16.
  */
@@ -17,13 +16,13 @@ public class EmployeeDatabase {
         database = new LinkedHashMap<String, Employee>();
     }
 
-    public EmployeeDatabase(File[] files){
+    public EmployeeDatabase(File[] textFiles, File[] imageFiles){
         database = new LinkedHashMap<String, Employee>();
-        getEmployeesFromResources(files);
+        putEmployeesFromResources(textFiles, imageFiles);
         System.out.println("Put: " + database.size() + " elements in database.");
     }
 
-    private void getEmployeesFromResources(File[] files){
+    private void putEmployeesFromResources(File[] files, File[] imageFiles){
         for (File f : files){
             if(!f.isHidden() && f.exists()){
                 try (BufferedReader br = new BufferedReader(new FileReader(f))) {
@@ -32,7 +31,8 @@ public class EmployeeDatabase {
                     while ((line = br.readLine()) != null) {
                         lineList.add(line);
                     }
-                    database.put(lineList.get(0), new Employee(lineList.get(0), lineList.get(1)));
+                    database.put(lineList.get(0), new Employee(lineList.get(0), lineList.get(1),
+                            getLinkedImageFile(lineList.get(0), imageFiles)));
                 }catch (Exception e){
                     System.out.println(e.getStackTrace());
                 }
@@ -44,7 +44,6 @@ public class EmployeeDatabase {
         return database.keySet();
     }
 
-
     public void put(Employee e){
         database.put(e.getName(), e);
     }
@@ -53,4 +52,16 @@ public class EmployeeDatabase {
         return database.get(name);
     }
 
+    //Can return null
+    private File getLinkedImageFile(String name, File[] imageFiles) {
+        for(File f : imageFiles){
+            if(!f.isHidden() && f.exists()){
+                if(f.getName().equals(name+".png")){
+                    return f;
+                }
+            }
+        }
+        System.out.println("Could not find image file for " + name + ". Returning null.");
+        return null;
+    }
 }
