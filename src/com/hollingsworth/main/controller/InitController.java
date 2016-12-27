@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class InitController implements Initializable{
+public class InitController extends DisplayBoxController implements Initializable{
 
     @FXML
     protected MenuItem refreshMenuItem;
@@ -30,22 +30,23 @@ public class InitController implements Initializable{
     @FXML
     protected MenuItem aboutMenuItem;
     @FXML
-    protected ListView leftList;
-    @FXML
     protected ListView rightList;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("Initializing elements into code");
-        testAssertions();
+        super.initialize(location,resources);
         refreshList();
         //Insert logic
-        addMenuItem.setOnAction(event -> addNewEmployee());
+        addMenuItem.setOnAction(event -> showAddNewEmployeeWindow());
         moveMenuItem.setOnAction(event -> moveEmployeeToOtherList());
         openFolderMenuItem.setOnAction(event -> openFolderExplorer());
-        aboutMenuItem.setOnAction(event -> WebManager.openWebpage(Constants.ABOUT_LINK));
+        aboutMenuItem.setOnAction(event -> openAboutLink());
         refreshMenuItem.setOnAction(event -> refreshList());
         editMenuItem.setOnAction(event -> editEmployeeData());
+    }
+
+    private void openAboutLink() {
+        WebManager.openWebpage(Constants.ABOUT_LINK);
     }
 
     private void openFolderExplorer() {
@@ -56,12 +57,11 @@ public class InitController implements Initializable{
         }
     }
 
-    private void addNewEmployee() {
+    private void showAddNewEmployeeWindow() {
         Constants.NewEmployeeStage.show();
     }
 
     private void editEmployeeData() {
-
         Constants.NewEmployeeStage.show();
     }
 
@@ -70,20 +70,7 @@ public class InitController implements Initializable{
     }
 
     private void moveEmployeeToOtherList(){
-        //System.out.println("Right list is selected");
-        System.out.println(rightList.getSelectionModel().getSelectedItems().toString());
-    }
-
-    private void testAssertions(){
-        System.out.println("Testing assertions");
-        assert openFolderMenuItem != null:"fx:id=\"closeMenuItem\" was not injected: check your FXML file 'prototype.fxml'.";
-        assert leftList != null:"fx:id=\"leftList\" was not injected: check your FXML file 'prototype.fxml'.";
-        assert rightList != null:"fx:id=\"rightList\" was not injected: check your FXML file 'prototype.fxml'.";
-        assert editMenuItem != null:"fx:id=\"editMenuItem\" was not injected: check your FXML file 'prototype.fxml'.";
-        assert addMenuItem != null:"fx:id=\"addMenuItem\" was not injected: check your FXML file 'prototype.fxml'.";
-        assert refreshMenuItem != null:"fx:id=\"addMenuItem\" was not injected: check your FXML file 'prototype.fxml'.";
-        assert aboutMenuItem != null:"fx:id=\"aboutMenuItem\" was not injected: check your FXML file 'prototype.fxml'.";
-        assert reportIssueMenuItem != null:"fx:id=\"reportIssueMenuItem\" was not injected: check your FXML file 'prototype.fxml'.";
-        assert moveMenuItem != null:"fx:id=\"moveMenuItem\" was not injected: check your FXML file 'prototype.fxml'.";
+        String employeeName = rightList.getSelectionModel().getSelectedItem().toString();
+        DisplayBoxController.setEmployeeData(employeeName);
     }
 }

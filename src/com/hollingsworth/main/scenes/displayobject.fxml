@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="displayParentPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hollingsworth.main.controller.DisplayObjectController">
+   <children>
+      <ImageView fx:id="employeeImageView" fitHeight="402.0" fitWidth="350.0" layoutX="-2.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="563.0" AnchorPane.topAnchor="0.0" />
+      <Label fx:id="EmployeeNameLabel" layoutX="353.0" layoutY="23.0" prefHeight="66.0" prefWidth="469.0" text="Firstname Lastname" AnchorPane.bottomAnchor="311.0" AnchorPane.leftAnchor="353.0" AnchorPane.rightAnchor="91.0" AnchorPane.topAnchor="23.0">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="EmployeeDescBox" editable="false" layoutX="353.0" layoutY="82.0" prefHeight="317.0" prefWidth="559.0" text="This is a pretty cool description wow I am good at many things&#10;" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="353.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="83.0">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </TextArea>
+   </children>
+</AnchorPane>

@@ -11,21 +11,22 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-    public static Stage parentStage;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        parentStage = primaryStage;
+        Constants.parentStage = primaryStage;
         initBeforeStartup();
         setupEmployeeScene();
-        Parent root = FXMLLoader.load(getClass().getResource("scenes/prototype.fxml"));
-        parentStage.setTitle("Fab Lab Available Employees");
-        parentStage.setScene(new Scene(root));
-        parentStage.show();
+        Parent root = FXMLLoader.load(getClass().getResource("scenes/MainScene.fxml"));
+        Constants.parentStage.setTitle("Fab Lab Available Employees");
+        Constants.parentStage.setScene(new Scene(root));
+        Constants.parentStage.show();
     }
 
     public static void main(String[] args){
         launch(args);
     }
+
     public void initBeforeStartup(){
         FileManager.setupFolders();
         Constants.database = new EmployeeDatabase(Constants.textFiles, Constants.imageFiles);

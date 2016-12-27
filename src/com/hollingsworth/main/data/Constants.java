@@ -11,6 +11,7 @@ import java.io.File;
 public class Constants {
     public static final String GITHUB_LINK = "https://github.com/baileyholl/Fab-Lab-Employee-Tool";
     public static final String ABOUT_LINK = "https://github.com/baileyholl/Fab-Lab-Employee-Tool#fab-lab-employee-tool";
+    public static Stage parentStage;
     public static Parent NewEmployeeRoot;
     public static Stage NewEmployeeStage;
 
@@ -20,4 +21,5 @@ public class Constants {
     public static File[] imageFiles;
     public static File[] textFiles;
     public static EmployeeDatabase database;
+    public static Parent displayObjectRoot;
 }
