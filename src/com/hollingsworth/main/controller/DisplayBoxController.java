@@ -58,6 +58,8 @@ public class DisplayBoxController implements Initializable{
     public static ArrayList<TextArea> areaList;
     public static ArrayList<ImageView> imageList;
     public static ArrayList<Label> labelList;
+    private static int overrideCount = 0;
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         areaList = new ArrayList<>();
@@ -94,7 +96,14 @@ public class DisplayBoxController implements Initializable{
         labelList.get(index).setText(employee.getName());
         areaList.get(index).setText(employee.getDescription());
     }
-    private static int overrideCount = 0;
+    public static void removeEmployeeData(int index){
+        try {
+            imageList.get(index).setImage(null);
+            labelList.get(index).setText("");
+            areaList.get(index).setText("");
+        }catch (IndexOutOfBoundsException ignored){}
+    }
+
     private static int findNextIndex(){
         int count = 0;
         for(Label l : labelList){

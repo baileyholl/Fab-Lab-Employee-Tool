@@ -49,7 +49,7 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
                            <children>
-                              <ImageView fx:id="imageViewThree" fitHeight="183.0" fitWidth="181.0" layoutX="3.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <ImageView fx:id="imageViewThree" fitHeight="183.0" fitWidth="181.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="4.0" />
                               <Label fx:id="nameLabelThree" layoutX="191.0" layoutY="9.0" prefHeight="29.0" prefWidth="168.0" AnchorPane.leftAnchor="187.0" AnchorPane.rightAnchor="11.0" />
                               <TextArea fx:id="descBoxThree" editable="false" layoutX="187.0" layoutY="37.0" prefHeight="156.0" prefWidth="177.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0" />
                            </children>
@@ -63,14 +63,14 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4">
                            <children>
-                              <ImageView fx:id="imageViewFive" fitHeight="183.0" fitWidth="181.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="imageViewFive" fitHeight="183.0" fitWidth="181.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
                               <Label fx:id="nameLabelFive" layoutX="194.0" layoutY="6.0" prefHeight="29.0" prefWidth="168.0" AnchorPane.leftAnchor="187.0" AnchorPane.rightAnchor="11.0" />
                               <TextArea fx:id="descBoxFive" editable="false" layoutX="190.0" layoutY="34.0" prefHeight="156.0" prefWidth="177.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0" />
                            </children>
                         </AnchorPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <children>
-                              <ImageView fx:id="imageViewSix" fitHeight="183.0" fitWidth="181.0" layoutX="5.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="imageViewSix" fitHeight="183.0" fitWidth="181.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
                               <Label fx:id="nameLabelSix" layoutX="193.0" layoutY="6.0" prefHeight="29.0" prefWidth="168.0" AnchorPane.leftAnchor="187.0" AnchorPane.rightAnchor="11.0" />
                               <TextArea fx:id="descBoxSix" editable="false" layoutX="189.0" layoutY="34.0" prefHeight="156.0" prefWidth="177.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0" />
                            </children>
@@ -94,7 +94,16 @@
                   <MenuItem fx:id="moveMenuItem" mnemonicParsing="false" text="Move" />
                   <MenuItem fx:id="addMenuItem" mnemonicParsing="false" text="Add" />
                   <MenuItem fx:id="editMenuItem" mnemonicParsing="false" text="Edit" />
-              <MenuItem mnemonicParsing="false" text="Delete" />
+                  <Menu mnemonicParsing="false" text="Delete">
+                    <items>
+                      <MenuItem fx:id="deleteBoxOne" mnemonicParsing="false" text="Box One" />
+                        <MenuItem fx:id="deleteBoxTwo" mnemonicParsing="false" text="Box Two" />
+                        <MenuItem fx:id="deleteBoxThree" mnemonicParsing="false" text="Box Three" />
+                        <MenuItem fx:id="deleteBoxFour" mnemonicParsing="false" text="Box Four" />
+                        <MenuItem fx:id="deleteBoxFive" mnemonicParsing="false" text="Box Five" />
+                        <MenuItem fx:id="deleteBoxSix" mnemonicParsing="false" text="Box Six" />
+                    </items>
+                  </Menu>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
