@@ -1,8 +1,6 @@
-package com.hollingsworth.main;
-
-import com.hollingsworth.main.data.Constants;
-import com.hollingsworth.main.data.EmployeeDatabase;
-import com.hollingsworth.main.utils.FileManager;
+import data.Constants;
+import data.EmployeeDatabase;
+import utils.FileManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,7 +15,7 @@ public class Main extends Application {
         Constants.parentStage = primaryStage;
         initBeforeStartup();
         setupEmployeeScene();
-        Parent root = FXMLLoader.load(getClass().getResource("scenes/MainScene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/scenes/MainScene.fxml"));
         Constants.parentStage.setTitle("Fab Lab Available Employees");
         Constants.parentStage.setScene(new Scene(root));
         Constants.parentStage.show();
@@ -33,7 +31,7 @@ public class Main extends Application {
     }
 
     public void setupEmployeeScene()throws Exception{
-        Constants.NewEmployeeRoot = FXMLLoader.load(getClass().getResource("scenes/NewEmployee.fxml"));
+        Constants.NewEmployeeRoot = FXMLLoader.load(getClass().getResource("/scenes/NewEmployee.fxml"));
         Constants.NewEmployeeStage = new Stage();
         Constants.NewEmployeeStage.setScene(new Scene(Constants.NewEmployeeRoot));
         Constants.NewEmployeeStage.initModality(Modality.APPLICATION_MODAL);

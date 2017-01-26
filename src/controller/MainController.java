@@ -1,4 +1,4 @@
-package com.hollingsworth.main.controller;
+package controller;
 
 import javafx.fxml.Initializable;
 

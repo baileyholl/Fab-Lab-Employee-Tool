@@ -1,7 +1,7 @@
-package com.hollingsworth.main.controller;
+package controller;
 
-import com.hollingsworth.main.data.Constants;
-import com.hollingsworth.main.data.Employee;
+import data.Constants;
+import data.Employee;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;

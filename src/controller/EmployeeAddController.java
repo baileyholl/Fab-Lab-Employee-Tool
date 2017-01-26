@@ -1,8 +1,8 @@
-package com.hollingsworth.main.controller;
+package controller;
 
-import com.hollingsworth.main.data.Constants;
-import com.hollingsworth.main.data.Employee;
-import com.hollingsworth.main.utils.FileManager;
+import data.Constants;
+import data.Employee;
+import utils.FileManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;

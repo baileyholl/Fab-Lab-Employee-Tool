@@ -1,4 +1,4 @@
-package com.hollingsworth.main.utils;
+package utils;
 
 import java.awt.*;
 import java.net.MalformedURLException;

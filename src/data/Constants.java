@@ -1,4 +1,4 @@
-package com.hollingsworth.main.data;
+package data;
 
 import javafx.scene.Parent;
 import javafx.stage.Stage;

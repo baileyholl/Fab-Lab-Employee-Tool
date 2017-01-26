@@ -1,7 +1,7 @@
-package com.hollingsworth.main.utils;
+package utils;
 
-import com.hollingsworth.main.data.Constants;
-import com.hollingsworth.main.data.Employee;
+import data.Constants;
+import data.Employee;
 
 import java.io.*;
 import java.nio.charset.Charset;

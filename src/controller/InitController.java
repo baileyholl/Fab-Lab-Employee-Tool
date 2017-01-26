@@ -1,7 +1,7 @@
-package com.hollingsworth.main.controller;
+package controller;
 
-import com.hollingsworth.main.data.Constants;
-import com.hollingsworth.main.utils.WebManager;
+import data.Constants;
+import utils.WebManager;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

@@ -1,4 +1,4 @@
-package com.hollingsworth.main.scenes;
+package scenes;
 
 import java.io.File;
 
