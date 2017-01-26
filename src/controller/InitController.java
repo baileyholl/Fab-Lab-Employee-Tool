@@ -85,8 +85,8 @@ public class InitController extends DisplayBoxController implements Initializabl
         Constants.NewEmployeeStage.show();
     }
 
-    private void refreshList() {
-        rightList.setItems(FXCollections.observableArrayList (Constants.database.getEmployeeNames()));
+    public void refreshList() {
+        rightList.setItems(FXCollections.observableArrayList(Constants.database.getEmployeeNames()));
     }
 
     private void removeEmployeeFromDisplay(int index){

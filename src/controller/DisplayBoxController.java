@@ -95,12 +95,14 @@ public class DisplayBoxController implements Initializable{
         }
         labelList.get(index).setText(employee.getName());
         areaList.get(index).setText(employee.getDescription());
+        areaList.get(index).setDisable(false);
     }
     public static void removeEmployeeData(int index){
         try {
             imageList.get(index).setImage(null);
             labelList.get(index).setText("");
             areaList.get(index).setText("");
+            areaList.get(index).setDisable(true);
         }catch (IndexOutOfBoundsException ignored){}
     }
 
