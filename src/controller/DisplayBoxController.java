@@ -58,6 +58,7 @@ public class DisplayBoxController implements Initializable{
     public static ArrayList<TextArea> areaList;
     public static ArrayList<ImageView> imageList;
     public static ArrayList<Label> labelList;
+
     private static int overrideCount = 0;
     
     @Override
@@ -90,12 +91,15 @@ public class DisplayBoxController implements Initializable{
         Employee employee = Constants.database.getByName(EmployeeName);
         try {
             imageList.get(index).setImage(new Image(employee.getLinkedImage().toURI().toURL().toExternalForm()));
+            SeperateDisplayController.displayImageList.get(index).setImage(new Image(employee.getLinkedImage().toURI().toURL().toExternalForm()));
         }catch (Exception e){
             System.out.println("Missing resource");
         }
         labelList.get(index).setText(employee.getName());
         areaList.get(index).setText(employee.getDescription());
         areaList.get(index).setDisable(false);
+        SeperateDisplayController.displayDescList.get(index).setText(employee.getDescription());
+        SeperateDisplayController.displayNameList.get(index).setText(employee.getName());
     }
     public static void removeEmployeeData(int index){
         try {
@@ -103,6 +107,9 @@ public class DisplayBoxController implements Initializable{
             labelList.get(index).setText("");
             areaList.get(index).setText("");
             areaList.get(index).setDisable(true);
+            SeperateDisplayController.displayImageList.get(index).setImage(null);
+            SeperateDisplayController.displayDescList.get(index).setText("");
+            SeperateDisplayController.displayNameList.get(index).setText("");
         }catch (IndexOutOfBoundsException ignored){}
     }
 

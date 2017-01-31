@@ -1,12 +1,12 @@
 import data.Constants;
 import data.EmployeeDatabase;
-import utils.FileManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import utils.FileManager;
 
 public class Main extends Application {
 
@@ -15,10 +15,19 @@ public class Main extends Application {
         Constants.parentStage = primaryStage;
         initBeforeStartup();
         setupEmployeeScene();
+        //setupDisplayScene();
         Parent root = FXMLLoader.load(getClass().getResource("/scenes/MainScene.fxml"));
         Constants.parentStage.setTitle("Fab Lab Available Employees");
         Constants.parentStage.setScene(new Scene(root));
         Constants.parentStage.show();
+
+        FXMLLoader anotherLoader = new FXMLLoader(getClass().getResource("/scenes/DisplayView.fxml")) ; // FXML for second stage
+        Constants.DisplayRoot = anotherLoader.load();
+        Scene anotherScene = new Scene(Constants.DisplayRoot);
+        Constants.DisplayStage = new Stage();
+        Constants.DisplayStage.setScene(anotherScene);
+        Constants.DisplayStage.show();
+
     }
 
     public static void main(String[] args){
@@ -36,5 +45,11 @@ public class Main extends Application {
         Constants.NewEmployeeStage.setScene(new Scene(Constants.NewEmployeeRoot));
         Constants.NewEmployeeStage.initModality(Modality.APPLICATION_MODAL);
         Constants.NewEmployeeStage.setTitle("Add New Employee");
+    }
+    public void setupDisplayScene() throws Exception{
+        Constants.DisplayRoot = FXMLLoader.load(getClass().getResource("/scenes/DisplayView.fxml"));
+        Constants.DisplayStage = new Stage();
+        Constants.DisplayStage.setScene(new Scene(Constants.DisplayRoot));
+        Constants.DisplayStage.initModality(Modality.NONE);
     }
 }

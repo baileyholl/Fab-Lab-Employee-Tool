@@ -15,11 +15,13 @@ public class Constants {
     public static Parent NewEmployeeRoot;
     public static Stage NewEmployeeStage;
 
+    public static Parent DisplayRoot;
+    public static Stage DisplayStage;
+
     public static File mainFolder;
     public static File imageFolder;
     public static File textFolder;
     public static File[] imageFiles;
     public static File[] textFiles;
     public static EmployeeDatabase database;
-    public static Parent displayObjectRoot;
 }
