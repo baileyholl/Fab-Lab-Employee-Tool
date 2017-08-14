@@ -130,7 +130,7 @@
             <items>
                   <MenuItem fx:id="moveMenuItem" mnemonicParsing="false" text="Move" />
                   <MenuItem fx:id="addMenuItem" mnemonicParsing="false" text="Add" />
-                  <MenuItem fx:id="editMenuItem" mnemonicParsing="false" text="Edit" />
+                  <MenuItem fx:id="editMenuItem" disable="true" mnemonicParsing="false" text="Edit" />
                   <Menu mnemonicParsing="false" text="Delete">
                     <items>
                       <MenuItem fx:id="deleteBoxOne" mnemonicParsing="false" text="Box One" />
@@ -145,8 +145,8 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-                  <MenuItem fx:id="reportIssueMenuItem" mnemonicParsing="false" text="Report an Issue" />
-              <MenuItem fx:id="aboutMenuItem" mnemonicParsing="false" text="About" />
+                  <MenuItem fx:id="reportIssueMenuItem" disable="true" mnemonicParsing="false" text="Report an Issue" />
+              <MenuItem fx:id="aboutMenuItem" mnemonicParsing="false" text="How To Use" />
             </items>
           </Menu>
         </menus>

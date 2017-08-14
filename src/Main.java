@@ -1,6 +1,7 @@
 import data.Constants;
 import data.EmployeeDatabase;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,19 +16,18 @@ public class Main extends Application {
         Constants.parentStage = primaryStage;
         initBeforeStartup();
         setupEmployeeScene();
-        //setupDisplayScene();
         Parent root = FXMLLoader.load(getClass().getResource("/scenes/MainScene.fxml"));
         Constants.parentStage.setTitle("Fab Lab Available Employees");
         Constants.parentStage.setScene(new Scene(root));
         Constants.parentStage.show();
-
+        Constants.parentStage.setOnCloseRequest(e -> Platform.exit());
         FXMLLoader anotherLoader = new FXMLLoader(getClass().getResource("/scenes/DisplayView.fxml")) ; // FXML for second stage
         Constants.DisplayRoot = anotherLoader.load();
         Scene anotherScene = new Scene(Constants.DisplayRoot);
         Constants.DisplayStage = new Stage();
         Constants.DisplayStage.setScene(anotherScene);
         Constants.DisplayStage.show();
-
+        Constants.DisplayStage.setOnCloseRequest(e -> Platform.exit());
     }
 
     public static void main(String[] args){
